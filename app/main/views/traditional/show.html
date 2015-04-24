@@ -1,0 +1,23 @@
+<:Title>
+  Show Project
+
+<:Body>
+  <h2>
+    Show Project
+  </h2>
+
+  <a href="{{ url_for(controller: 'traditional') }}">Back to projects</a>
+
+  {{ if loaded? }}
+    <div>
+      {{ title }}
+    </div>
+
+    <div>
+      <i>{{ description }}</i>
+    </div>
+  {{ else }}
+    <div>
+      Loading...
+    </div>
+  {{ end }}

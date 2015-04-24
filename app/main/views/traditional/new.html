@@ -1,0 +1,27 @@
+<:Title>
+  New Project
+
+<:Body>
+  <h2>
+    New Project
+  </h2>
+
+  <a href="{{ url_for(controller: 'traditional', action: 'index') }}">Back to projects</a>
+
+  <div>
+    <form e-submit="create" role="form">
+      <div>
+        <label>Title:</label>
+        <input type="text" value="{{ title }}" />
+      </div>
+
+      <div>
+        <label>Description:</label><br />
+        <textarea>{{ description }}</textarea>
+      </div>
+
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </div>

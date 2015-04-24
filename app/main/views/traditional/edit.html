@@ -1,0 +1,33 @@
+<:Title>
+  Edit Project
+
+<:Body>
+  <h2>
+    Edit Project
+  </h2>
+
+  <a href="{{ url_for(controller: 'traditional', action: 'index') }}">Back to projects</a>
+
+  {{ if loaded? }}
+    <div>
+      <form e-submit="update" role="form">
+        <div>
+          <label>Title:</label>
+          <input type="text" value="{{ title }}" />
+        </div>
+
+        <div>
+          <label>Description:</label><br />
+          <textarea>{{ description }}</textarea>
+        </div>
+
+        <div>
+          <input type="submit" value="Save" />
+        </div>
+      </form>
+    </div>
+  {{ else }}
+    <div>
+      Loading...
+    </div>
+  {{ end }}
