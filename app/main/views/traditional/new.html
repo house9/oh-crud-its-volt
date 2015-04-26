@@ -21,6 +21,17 @@
       </div>
 
       <div>
+        <label>Department:</label><br />
+        <select value="{{ _department_id }}">
+          <option>Please Select</option>
+          {{ page._departments.each do |department| }}
+            <option value="{{ department._id }}">{{ department.title }}</option>
+          {{ end }}
+        </select>
+      </div>
+
+
+      <div>
         <input type="submit" value="Submit" />
       </div>
     </form>

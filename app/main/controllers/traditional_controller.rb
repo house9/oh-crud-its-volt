@@ -9,7 +9,13 @@ module Main
 
     def new
       Volt.logger.debug ":: traditional/new"
+      Volt.logger.debug self.model
+
       self.model = store._projects.buffer
+      # load up data for the departments select menu
+      store._departments.fetch.then do |result|
+        page._departments = result
+      end
     end
 
     def create
@@ -38,6 +44,11 @@ module Main
       store._projects.where({ _id: params._id }).limit(1).then do |result|
         Volt.logger.debug "Found #{params._id}"
         self.model = result[0].buffer
+      end
+
+      # load up data for the departments select menu
+      store._departments.fetch.then do |result|
+        page._departments = result
       end
     end
 

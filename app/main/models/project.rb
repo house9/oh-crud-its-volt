@@ -3,4 +3,6 @@ class Project < Volt::Model
   field :description, String
 
   validate :title, presence: true
+
+  belongs_to :department
 end

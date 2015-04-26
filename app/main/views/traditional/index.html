@@ -7,13 +7,18 @@
   <a href="{{ url_for(controller: 'traditional', action: 'new') }}">Add project</a>
 
   {{ model.each_with_index do |project, index| }}
-    <div>
-      {{ project.title }}
-      <a href="{{ url_for(controller: 'traditional', action: 'show', _id: project._id) }}">Show</a>
-      <a href="{{ url_for(controller: 'traditional', action: 'edit', _id: project._id) }}">Edit</a>
-      <a e-click="destroy(index)">Delete</a>
-    </div>
-    <div>
-      <i>{{ project.description }}</i>
+    <div style="border: 1px solid black; margin-bottom: 25px">
+      <div>
+        {{ project.title }}
+        <a href="{{ url_for(controller: 'traditional', action: 'show', _id: project._id) }}">Show</a>
+        <a href="{{ url_for(controller: 'traditional', action: 'edit', _id: project._id) }}">Edit</a>
+        <a e-click="destroy(index)">Delete</a>
+      </div>
+      <div>
+        <i>{{ project.description }}</i>
+      </div>
+      <div>
+        <strong>{{ project.department.then { |x| x.title } }}</stron>
+      </div>
     </div>
   {{ end }}
